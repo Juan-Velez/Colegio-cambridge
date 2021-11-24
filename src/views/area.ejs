@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <title>Areas</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h1><a href="/" class="navbar-brand">Colegio Cambridge</a></h1>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/area/add" method="post">
+                        <div class="form-group">
+                            <input type="text" name="nombreArea" placeholder="Area" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar Area</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover mt-5">
+            <thead style="text-align: center;">
+                <th>ID AREA</th>
+                <th>NOMBRE</th>
+                <th>ACCIONES</th>
+            </thead>
+            <tbody>
+                <% if (data)  { %>
+                    <%for (var i = 0; i < data.length; i++) {%>
+                       <tr>
+                           <td><%= data[i].idArea %></td>
+                           <td><%= data[i].nombreArea %></td>
+                           <td>
+                                <a href="/area/delete/<%= data[i].idArea %>" class="btn btn-danger">Eliminar</a>
+                                <a href="/area/update/<%= data[i].idArea %>" class="btn btn-info">Editar</a>
+                            </td>
+                       </tr>     
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+    
