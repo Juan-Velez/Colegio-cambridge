@@ -1,30 +1,43 @@
 const controllerEmpleado = {};
 
 controllerEmpleado.list = (req, res) => {
-    var resultado = null,  resultado2 = null;
+    var empleado = null;
+    var area = null;
+    var oficina = null;
     req.getConnection((err, conn) => {
         conn.query('SELECT *FROM Empleados', (err, empleados) => {
-            resultado = empleados;
-            console.log(resultado);
+            empleado = empleados;
+            console.log(empleado);
             if (err) {
                 res.json(err);
             }
         });
         conn.query('SELECT *FROM Areas', (err, areas) => {
-            resultado2 = areas;
-            console.log(resultado2);
+            area = areas;
+            console.log(area);
+            if (err) {
+                res.json(err);
+            }
+        });
+        conn.query('SELECT *FROM Oficinas', (err, oficinas) => {
+            oficina = oficinas;
+            console.log(oficina);
+            if (err) {
+                res.json(err);
+            }
             res.render('empleado', {
-                resultado: resultado,
-                resultado2: resultado2
+                empleado: empleado,
+                area: area,
+                oficina: oficina
             });
-        })
+        });
     });
 };
 
 controllerEmpleado.save = (req, res) => {
     const data = req.body;
     req.getConnection((err, conn) => {
-        conn.query('INSERT INTO Empleados set ?', [data], (err, resultado) => {
+        conn.query('INSERT INTO Empleados set ?', [data], (err, empleado) => {
             res.redirect('/');
         });
     });

@@ -23,7 +23,8 @@ CREATE TABLE Areas (
 
 CREATE TABLE Oficinas (
     idOficina INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nombreOficina VARCHAR(50) NOT NULL
+    nombreOficina VARCHAR(50) NOT NULL,
+    areaOficina VARCHAR(50) NOT NULL
 );
 
 --show all tables

@@ -11,6 +11,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <h1><a href="/" class="navbar-brand">Colegio Cambridge</a></h1>
         <h1><a href="/area" style="color: beige;">Areas</a></h1>
+        <h1><a href="/oficina" style="color: beige;">Oficinas</a></h1>
     </nav>
     <div class="container">
         <div class="row mt-5">
@@ -22,21 +23,25 @@
                         </div>
                         <div class="form-group">
                             <select name="area">
-                                <option value="0">Escoga el areaa la cual fua asigado</option>
-                                <%for (var i = 0; i < resultado2.length; i++) {%>
-                                    <option value="<%= resultado2[i].nombreArea %>"><%= resultado2[i].nombreArea %></option>
+                                <option value="0">Area</option>
+                                <%for (var i = 0; i < area.length; i++) {%>
+                                    <option value="<%= area[i].nombreArea %>"><%= area[i].nombreArea %></option>
                                 <% } %>
                             </select>
                         </div>
                         <div class="form-group">
                             <input type="text" name="tipo_empleado" placeholder="tipo de empleado" class="form-control">
                         </div>
-
                         <div class="form-group">
-                            <input type="text" name="oficina" placeholder="oficina" class="form-control">
+                            <select name="oficina">
+                                <option value="0">Oficina</option>
+                                <%for (var i = 0; i < oficina.length; i++) {%>
+                                    <option value="<%= oficina[i].nombreOficina %>"><%= oficina[i].nombreOficina %></option>
+                                <% } %>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="tipo_contrato"  placeholder="tipo de contrato" class="form-control">
+                            <input type="text" name="tipo_contrato" placeholder="tipo de contrato" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary">Agregar empleado</button>
                     </form>
@@ -55,18 +60,18 @@
                 <th>ACCIONES</th>
             </thead>
             <tbody>
-                <% if (resultado)  { %>
-                    <%for (var i = 0; i < resultado.length; i++) {%>
+                <% if (empleado)  { %>
+                    <%for (var i = 0; i < empleado.length; i++) {%>
                        <tr>
-                           <td><%= resultado[i].id %></td>
-                           <td><%= resultado[i].nombre%></td>
-                           <td><%= resultado[i].area%></td>
-                           <td><%= resultado[i].tipo_empleado%></td>
-                           <td><%= resultado[i].oficina%></td>
-                           <td><%= resultado[i].tipo_contrato%></td>
+                           <td><%= empleado[i].id %></td>
+                           <td><%= empleado[i].nombre%></td>
+                           <td><%= empleado[i].area%></td>
+                           <td><%= empleado[i].tipo_empleado%></td>
+                           <td><%= empleado[i].oficina%></td>
+                           <td><%= empleado[i].tipo_contrato%></td>
                            <td>
-                                <a href="/delete/<%= resultado[i].id %>" class="btn btn-danger">Eliminar</a>
-                                <a href="/update/<%= resultado[i].id %>" class="btn btn-info">Editar</a>
+                                <a href="/delete/<%= empleado[i].id %>" class="btn btn-danger">Eliminar</a>
+                                <a href="/update/<%= empleado[i].id %>" class="btn btn-info">Editar</a>
                             </td>
                        </tr>     
                     <% } %>
