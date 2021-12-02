@@ -5,37 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-    <title>Colegio</title>
+    <title>Colegio Cambridge</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <h1><a href="/" class="navbar-brand">Colegio Cambridge</a></h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Colegio Cambridge</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/area">Areas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/oficina">Oficinas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-
     <div class="container">
-        <div class="row">
-            <div class="col-md-5">
+        <div class="row mt-5">
+            <div class="card">
                 <div class="card-body">
+                    <legend>Empleado</legend>
                     <form action="/update/<%= data.id%>" method="post">
                         <div class="form-group">
                             <input type="text" name="nombre" value="<%= data.nombre%>" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="tipo_empleado" value="<%= data.tipo_empleado%>"  class="form-control">
+                            <input type="text" name="area" value="<%= data.area%>" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="oficina" value="<%= data.oficina%>"   class="form-control">
+                            <input type="text" name="tipo_empleado" value="<%= data.tipo_empleado%>" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="tipo_contrato" value="<%= data.tipo_contrato%>"   class="form-control">
+                            <input type="text" name="oficina" value="<%= data.oficina%>" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary">editar empleado</button>
+                        <div class="form-group">
+                            <input type="text" name="tipo_contrato" value="<%= data.tipo_contrato%>" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary form-control">Editar empleado</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-    </body>
+</body>
 </html>
-    
