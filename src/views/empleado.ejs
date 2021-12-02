@@ -84,7 +84,7 @@
         <table class="table table-bordered table-hover mt-5" id="tabla">
             <thead style="text-align: center;">
                 <br>
-                <button onclick="myFunction()" class="btn btn-success">Agregar</button>
+                <button type="submit" onclick="myFunction()" class="btn btn-success">Agregar</button>
                 <th>ID</th>
                 <th>NOMBRE</th>
                 <th>AREA</th>
@@ -93,7 +93,7 @@
                 <th>TIPO DE CONTRATO</th>
                 <th>ACCIONES</th>
             </thead>
-            <tbody>
+            <tbody style="text-align: center;">
                 <% if (empleado)  { %>
                     <%for (var i = 0; i < empleado.length; i++) {%>
                         <tr>

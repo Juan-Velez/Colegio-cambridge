@@ -22,6 +22,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/oficina">Oficinas</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/iempleados">Informe Empleados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/iareas">Informe Areas</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -57,7 +63,7 @@
                 <th>AREA</th>
                 <th>ACCIONES</th>
             </thead>
-            <tbody>
+            <tbody style="text-align: center;">
                 <% if (oficina)  { %>
                     <%for (var i = 0; i < oficina.length; i++) {%>
                         <tr>

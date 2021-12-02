@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-    <title>Colegio Cambridge</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <title>Informe empleados</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -32,38 +35,37 @@
             </div>
         </div>
     </nav>
+
     <div class="container">
-        <div class="row mt-5">
-            <div class="card" id="Agregar" style="border:1px solid black; display: none; margin-bottom: 2px;">
-                <div class="card-body">
-                    <legend>Area</legend>
-                    <form action="/area/add" method="post">
-                        <div class="form-group">
-                            <input type="text" name="nombreArea" placeholder="Area" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-primary form-control">Agregar area</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <table class="table table-bordered table-hover mt-5">
+        <h1 style="margin-top: 5rem; text-align: center;">Informe de los empleados registradas</h1>
+        <% var numeroEmpleados = 0%>
+        <% if (data)  { %>
+            <%for (var i = 0; i < data.length; i++) {%> 
+                <% var numeroEmpleados = numeroEmpleados +1%> 
+            <% } %>
+        <% } %>
+        <br>
+        <h3>Cantidad de empleados registrados: <%= numeroEmpleados%></h3>
+        <table class="table table-bordered table-hover mt-5" id="tabla">
             <thead style="text-align: center;">
                 <br>
-                <button onclick="myFunction()" class="btn btn-success">Agregar</button>
-                <th>ID AREA</th>
+                <th>ID</th>
                 <th>NOMBRE</th>
-                <th>ACCIONES</th>
+                <th>AREA</th>
+                <th>TIPO DE EMPLEADO</th>
+                <th>OFICINA</th>
+                <th>TIPO DE CONTRATO</th>
             </thead>
             <tbody style="text-align: center;">
                 <% if (data)  { %>
                     <%for (var i = 0; i < data.length; i++) {%>
                         <tr>
                             <td><%= i+1 %></td>
-                            <td><%= data[i].nombreArea %></td>
-                            <td>
-                                <a href="/area/delete/<%= data[i].idArea %>" class="btn btn-danger">Eliminar</a>
-                                <a href="/area/update/<%= data[i].idArea %>" class="btn btn-info">Editar</a>
-                            </td>
+                            <td><%= data[i].nombre%></td>
+                            <td><%= data[i].area%></td>
+                            <td><%= data[i].tipo_empleado%></td>
+                            <td><%= data[i].oficina%></td>
+                            <td><%= data[i].tipo_contrato%></td>
                         </tr>     
                     <% } %>
                 <% } %>

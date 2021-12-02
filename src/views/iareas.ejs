@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-    <title>Colegio Cambridge</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <title>Informe areas</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -32,20 +35,36 @@
             </div>
         </div>
     </nav>
+
     <div class="container">
-        <div class="row mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <legend>Area</legend>
-                    <form action="/area/update/<%= data.idArea%>" method="post">
-                        <div class="form-group">
-                            <input type="text" name="nombreArea" value="<%= data.nombreArea%>" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-primary form-control">Editar area</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <h1 style="margin-top: 5rem; text-align: center;">Informe de las areas registradas</h1>
+        <% var numeroAreas = 0%>
+        <% if (data)  { %>
+            <%for (var i = 0; i < data.length; i++) {%> 
+                <% var numeroAreas = numeroAreas +1%> 
+            <% } %>
+        <% } %>
+        <br>
+        <h3>Cantidad de areas registradas: <%= numeroAreas%></h3>
+        <table class="table table-bordered table-hover mt-5" id="tabla">
+            <thead style="text-align: center;">
+                <br>
+                <th>ID</th>
+                <th>NOMBRE</th>
+            </thead>
+            <tbody style="text-align: center;">
+                <% if (data)  { %>
+                    <%for (var i = 0; i < data.length; i++) {%>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= data[i].nombreArea%></td>
+                        </tr>   
+                        <% var numeroAreas = numeroAreas +1%> 
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
