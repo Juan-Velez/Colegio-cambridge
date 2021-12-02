@@ -36,43 +36,19 @@
         </div>
     </nav>
     <div class="container">
-        <h1 style="margin-top: 5rem; text-align: center;">Informe de los empleados registrados</h1>
-        <% var numeroEmpleados = 0%>
-        <% if (data)  { %>
-            <%for (var i = 0; i < data.length; i++) {%>
-                <% var numeroEmpleados = numeroEmpleados +1%>
-            <% } %>
-        <% } %>
-        <br>
-        <h3>Cantidad de empleados registrados: <%= numeroEmpleados%></h3>
-        <table class="table table-bordered table-hover mt-5" id="tabla">
-            <thead style="text-align: center;">
-                <br>
-                <th>ID</th>
-                <th>NOMBRE</th>
-                <th>AREA</th>
-                <th>TIPO DE EMPLEADO</th>
-                <th>OFICINA</th>
-                <th>TIPO DE CONTRATO</th>
-                <th>SALON</th>
-            </thead>
-            <tbody style="text-align: center;">
-                <% if (data)  { %>
-                    <%for (var i = 0; i < data.length; i++) {%>
-                        <tr>
-                            <td><%= i+1 %></td>
-                            <td><%= data[i].nombre%></td>
-                            <td><%= data[i].area%></td>
-                            <td><%= data[i].tipo_empleado%></td>
-                            <td><%= data[i].oficina%></td>
-                            <td><%= data[i].tipo_contrato%></td>
-                            <td><%= data[i].salon%></td>
-                        </tr>
-                    <% } %>
-                <% } %>
-            </tbody>
-        </table>
+        <div class="row mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <legend>Salon</legend>
+                    <form action="/salon/update/<%= data.idSalon%>" method="post">
+                        <div class="form-group">
+                            <input type="text" name="nombreSalon" value="<%= data.nombreSalon%>" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary form-control">Editar salon</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

@@ -4,9 +4,9 @@ const router = express.Router();
 const empleadoController = require('../controllers/empleadoController');
 const areaController = require('../controllers/areaController');
 const oficinaController = require('../controllers/oficinaController');
+const salonController = require('../controllers/salonController');
 const iareaController = require('../controllers/iareasController');
 const iempleadoController = require('../controllers/iempleadosController');
-
 
 //Rutas Empleado
 router.get('/', empleadoController.list);
@@ -29,11 +29,17 @@ router.get('/oficina/delete/:idOficina', oficinaController.delete);
 router.get('/oficina/update/:idOficina', oficinaController.edit);
 router.post('/oficina/update/:idOficina', oficinaController.update);
 
+//Rutas Salon
+router.get('/salon', salonController.list);
+router.post('/salon/add', salonController.save);
+router.get('/salon/delete/:idSalon',salonController.delete);
+router.get('/salon/update/:idSalon', salonController.edit);
+router.post('/salon/update/:idSalon', salonController.update);
+
 //Rutas iareas
 router.get('/iareas', iareaController.list);
 
 //Rutas iempleados
 router.get('/iempleados', iempleadoController.list);
-
 
 module.exports = router;

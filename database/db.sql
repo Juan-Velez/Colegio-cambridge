@@ -11,7 +11,8 @@ CREATE TABLE Empleados (
     area VARCHAR(100) NOT NULL,
     tipo_empleado VARCHAR(50) NOT NULL,
     oficina VARCHAR(50) NOT NULL,
-    tipo_contrato VARCHAR(50)
+    tipo_contrato VARCHAR(50),
+    salon VARCHAR(50)
 );
 
 --Creating table Areas
@@ -27,6 +28,12 @@ CREATE TABLE Oficinas (
     areaOficina VARCHAR(50) NOT NULL
 );
 
+--Creating table Salones
+CREATE TABLE Salones (
+    idSalon INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nombreSalon VARCHAR(50) NOT NULL
+);
+
 --Show all tables
 SHOW TABLES;
 
@@ -34,11 +41,13 @@ SHOW TABLES;
 DESCRIBE Empleados;
 DESCRIBE Areas;
 DESCRIBE Oficinas;
+DESCRIBE Salones;
 
---Eliminate tables
+--Eliminate database
 DROP DATABASE crudcambridge;
 
 --Eliminate tables
 DROP TABLE Empleados;
 DROP TABLE Areas;
 DROP TABLE Oficinas;
+DROP TABLE Salones;

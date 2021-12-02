@@ -39,20 +39,12 @@
         <div class="row mt-5">
             <div class="card" id="Agregar" style="border:1px solid black; display: none; margin-bottom: 2px;">
                 <div class="card-body">
-                    <legend>Oficina</legend>
-                    <form action="/oficina/add" method="post">
+                    <legend>Salon</legend>
+                    <form action="/salon/add" method="post">
                         <div class="form-group">
-                            <input type="text" name="nombreOficina" placeholder="Oficina" class="form-control">
+                            <input type="text" name="nombreSalon" placeholder="Salon" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <select name="areaOficina" class="form-control">
-                                <option selected>Area</option>
-                                <%for (var i = 0; i < area.length; i++) {%>
-                                    <option value="<%= area[i].nombreArea %>"><%= area[i].nombreArea %></option>
-                                <% } %>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary form-control">Agregar oficina</button>
+                        <button type="submit" class="btn btn-primary form-control">Agregar salon</button>
                     </form>
                 </div>
             </div>
@@ -61,21 +53,19 @@
             <thead style="text-align: center;">
                 <br>
                 <button onclick="myFunction()" class="btn btn-success">Agregar</button>
-                <th>ID OFICINA</th>
+                <th>ID SALON</th>
                 <th>NOMBRE</th>
-                <th>AREA</th>
                 <th>ACCIONES</th>
             </thead>
             <tbody style="text-align: center;">
-                <% if (oficina)  { %>
-                    <%for (var i = 0; i < oficina.length; i++) {%>
+                <% if (data)  { %>
+                    <%for (var i = 0; i < data.length; i++) {%>
                         <tr>
                             <td><%= i+1 %></td>
-                            <td><%= oficina[i].nombreOficina %></td>
-                            <td><%= oficina[i].areaOficina %></td>
+                            <td><%= data[i].nombreSalon %></td>
                             <td>
-                                <a href="/oficina/delete/<%= oficina[i].idOficina %>" class="btn btn-danger">Eliminar</a>
-                                <a href="/oficina/update/<%= oficina[i].idOficina %>" class="btn btn-info">Editar</a>
+                                <a href="/salon/delete/<%= data[i].idSalon %>" class="btn btn-danger">Eliminar</a>
+                                <a href="/salon/update/<%= data[i].idSalon %>" class="btn btn-info">Editar</a>
                             </td>
                         </tr>
                     <% } %>

@@ -4,6 +4,7 @@ controllerEmpleado.list = (req, res) => {
     var empleado = null;
     var area = null;
     var oficina = null;
+    var salon = null;
     req.getConnection((err, conn) => {
         conn.query('SELECT *FROM Empleados', (err, empleados) => {
             empleado = empleados;
@@ -25,10 +26,18 @@ controllerEmpleado.list = (req, res) => {
             if (err) {
                 res.json(err);
             }
+        });
+        conn.query('SELECT *FROM Salones', (err, salones) => {
+            salon = salones;
+            console.log(salon);
+            if (err) {
+                res.json(err);
+            }
             res.render('empleado', {
                 empleado: empleado,
                 area: area,
-                oficina: oficina
+                oficina: oficina,
+                salon: salon
             });
         });
     });

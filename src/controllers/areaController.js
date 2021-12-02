@@ -1,6 +1,5 @@
 const controllerArea = {};
 
-
 controllerArea.list = (req, res) => {
     req.getConnection((err, conn) => {
         conn.query('SELECT *FROM Areas', (err, areas) => {
