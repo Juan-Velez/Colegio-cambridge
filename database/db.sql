@@ -1,10 +1,10 @@
--- ceating databesa
+--Creating database
 CREATE DATABASE crudcambridge;
 
---using database
-use crudcambridge;
+--Using database
+USE crudcambridge;
 
---Creating a table
+--Creating table Empleados
 CREATE TABLE Empleados (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
@@ -14,24 +14,31 @@ CREATE TABLE Empleados (
     tipo_contrato VARCHAR(50)
 );
 
---oficina--
-
+--Creating table Areas
 CREATE TABLE Areas (
     idArea INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombreArea VARCHAR(50) NOT NULL
 );
 
+--Creating table Oficina
 CREATE TABLE Oficinas (
     idOficina INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombreOficina VARCHAR(50) NOT NULL,
     areaOficina VARCHAR(50) NOT NULL
 );
 
---show all tables
+--Show all tables
 SHOW TABLES;
 
---describe the table
-describe empleado;
+--Describe tables
+DESCRIBE Empleados;
+DESCRIBE Areas;
+DESCRIBE Oficinas;
 
---Eliminar tabla
+--Eliminate tables
+DROP DATABASE crudcambridge;
+
+--Eliminate tables
+DROP TABLE Empleados;
+DROP TABLE Areas;
 DROP TABLE Oficinas;
