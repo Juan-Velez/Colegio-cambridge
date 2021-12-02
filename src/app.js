@@ -5,6 +5,7 @@ const app = express();
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
 
+
 //importating routes
 const empleadoRoutes = require('./routes/rutas');
 const { urlencoded } = require('express');
@@ -19,11 +20,12 @@ app.use(morgan('dev'));
 app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'root',
-    password: 'killerzton',
+    password: 'admin',
     port: 3306,
     database: 'crudcambridge'
 }, 'single'));
 app.use(express.urlencoded({extended: false}));
+app.use(express.static('public'));
 
 //routes
 app.use('/', empleadoRoutes);

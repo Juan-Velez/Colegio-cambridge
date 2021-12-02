@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
     <title>Colegio Cambridge</title>
 </head>
 <body>
@@ -27,9 +28,10 @@
             </div>
         </div>
     </nav>
+
     <div class="container">
         <div class="row mt-5">
-            <div class="card">
+            <div class="card" id="agregarEmpleado" style="border:1px solid black; display: none; margin-bottom: 2px;">
                 <div class="card-body">
                     <legend>Empleado</legend>
                     <form action="/add" method="post">
@@ -73,8 +75,9 @@
                 </div>
             </div>
         </div>
-        <table class="table table-bordered table-hover mt-5">
+        <table class="table table-bordered table-hover mt-5" id="tabla">
             <thead style="text-align: center;">
+                <button onclick="myFunction()" class="btn btn-success">Agregar</button>
                 <th>ID</th>
                 <th>NOMBRE</th>
                 <th>AREA</th>
@@ -102,6 +105,8 @@
                 <% } %>
             </tbody>
         </table>
+        <!--<button id="btnCrearPDF">Descargar</button>-->
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
