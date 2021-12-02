@@ -32,7 +32,7 @@
 });*/
 
 function myFunction() {
-    var x = document.getElementById("agregarEmpleado");
+    var x = document.getElementById("Agregar");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {

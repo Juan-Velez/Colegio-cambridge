@@ -28,7 +28,7 @@
     </nav>
     <div class="container">
         <div class="row mt-5">
-            <div class="card">
+            <div class="card" id="Agregar" style="border:1px solid black; display: none; margin-bottom: 2px;">
                 <div class="card-body">
                     <legend>Area</legend>
                     <form action="/area/add" method="post">
@@ -42,6 +42,8 @@
         </div>
         <table class="table table-bordered table-hover mt-5">
             <thead style="text-align: center;">
+                <br>
+                <button onclick="myFunction()" class="btn btn-success">Agregar</button>
                 <th>ID AREA</th>
                 <th>NOMBRE</th>
                 <th>ACCIONES</th>
@@ -62,5 +64,6 @@
             </tbody>
         </table>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

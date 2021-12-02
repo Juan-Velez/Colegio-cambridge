@@ -25,6 +25,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/oficina">Oficinas</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/iempleados">Informe Empleados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/iareas">Informe Areas</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -32,7 +38,7 @@
 
     <div class="container">
         <div class="row mt-5">
-            <div class="card" id="agregarEmpleado" style="border:1px solid black; display: none; margin-bottom: 2px;">
+            <div class="card" id="Agregar" style="border:1px solid black; display: none; margin-bottom: 2px;">
                 <div class="card-body">
                     <legend>Empleado</legend>
                     <form action="/add" method="post">
@@ -77,6 +83,7 @@
         </div>
         <table class="table table-bordered table-hover mt-5" id="tabla">
             <thead style="text-align: center;">
+                <br>
                 <button onclick="myFunction()" class="btn btn-success">Agregar</button>
                 <th>ID</th>
                 <th>NOMBRE</th>
